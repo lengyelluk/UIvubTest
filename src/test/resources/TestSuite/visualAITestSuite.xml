@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="VisualAITestSuite">
+	<listeners>
+		<listener class-name="sgt.testcases.listeners.RegressionTestListener" />
+	</listeners>
+	<test name="VisualAiTests">
+		<classes>
+			<class name="sgt.testcases.appli.VisualAITest" />
+		</classes>
+	</test>
+</suite>

@@ -1,0 +1,105 @@
+<page xmlns="http://sogeti.com/SGTCommons" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://sogeti.com/SGTCommons http://sogeti.com/SGTCommons/SGTSelectors.xsd">
+	<SGTGuiElement>
+		<name>toggleButton</name>
+		<kind>button</kind>
+		<identifier>xpath</identifier>	
+		<identValue>//div[@class='logo-w']//img</identValue>
+	</SGTGuiElement>
+	<SGTGuiElement>
+		<name>loginButton</name>
+		<kind>button</kind>
+		<identifier>css</identifier>
+		<identValue>button#log-in</identValue>
+	</SGTGuiElement><SGTGuiElement>
+		<name>signInButton</name>
+		<kind>button</kind>
+		<identifier>css</identifier>
+		<identValue>a#log-in</identValue>
+	</SGTGuiElement>
+	<SGTGuiElement>
+		<name>usernameTextField</name>
+		<kind>textfield</kind>
+		<identifier>css</identifier>
+		<identValue>input#username</identValue>
+	</SGTGuiElement>
+	<SGTGuiElement>
+		<name>passwordTextField</name>
+		<kind>textfield</kind>
+		<identifier>css</identifier>
+		<identValue>input#password</identValue>
+	</SGTGuiElement>
+	<SGTGuiElement>
+		<name>loginFormHeader</name>
+		<kind>label</kind>
+		<identifier>css</identifier>
+		<identValue>h4.auth-header</identValue>
+	</SGTGuiElement>
+	<SGTGuiElement>
+		<name>usernameLabel</name>
+		<kind>label</kind>
+		<identifier>xpath</identifier>
+		<identValue>//input[@id='username']/preceding-sibling::label</identValue>
+	</SGTGuiElement>
+	<SGTGuiElement>
+		<name>passwordLabel</name>
+		<kind>label</kind>
+		<identifier>xpath</identifier>
+		<identValue>//input[@id='password']/preceding-sibling::label</identValue>
+	</SGTGuiElement>
+	<SGTGuiElement>
+		<name>rememberMeCheckbox</name>
+		<kind>label</kind>
+		<identifier>css</identifier>
+		<identValue>input.form-check-input</identValue>
+	</SGTGuiElement>
+	<SGTGuiElement>
+		<name>twitterIcon</name>
+		<kind>label</kind>
+		<identifier>xpath</identifier>
+		<identValue>//div[@class='buttons-w']//img[contains(@src, 'twitter')]</identValue>
+	</SGTGuiElement>
+	<SGTGuiElement>
+		<name>facebookIcon</name>
+		<kind>label</kind>
+		<identifier>xpath</identifier>
+		<identValue>//div[@class='buttons-w']//img[contains(@src, 'facebook')]</identValue>
+	</SGTGuiElement>
+	<SGTGuiElement>
+		<name>linkedinIcon</name>
+		<kind>label</kind>
+		<identifier>xpath</identifier>
+		<identValue>//div[@class='buttons-w']//img[contains(@src, 'linkedin')]</identValue>
+	</SGTGuiElement>
+	<SGTGuiElement>
+		<name>rememberMeLabel</name>
+		<kind>label</kind>
+		<identifier>css</identifier>
+		<identValue>label.form-check-label</identValue>
+	</SGTGuiElement>
+	<SGTGuiElement>
+		<name>rememberMeCheckbox</name>
+		<kind>label</kind>
+		<identifier>css</identifier>
+		<identValue>input.form-check-input</identValue>
+	</SGTGuiElement>
+	<SGTGuiElement>
+		<name>loginFailedMsg</name>
+		<kind>label</kind>
+		<identifier>css</identifier>
+		<identValue>div.alert-warning</identValue>
+	</SGTGuiElement>
+	<SGTGuiElement>
+		<name>maleIcon</name>
+		<kind>label</kind>
+		<identifier>xpath</identifier>
+		<identValue>//input[@id='username']//following-sibling::div[contains(@class, 'os-icon-user-male-circle')]</identValue>
+	</SGTGuiElement>
+	<SGTGuiElement>
+		<name>fingerprintIcon</name>
+		<kind>label</kind>
+		<identifier>xpath</identifier>
+		<identValue>//input[@id='password']//following-sibling::div[contains(@class, 'os-icon-fingerprint')]</identValue>
+	</SGTGuiElement>
+
+</page>

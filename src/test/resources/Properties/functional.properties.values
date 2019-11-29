@@ -1,0 +1,4 @@
+url.one=https://demo.applitools.com/hackathon.html
+url.two=https://demo.applitools.com/hackathonV2.html
+url_adds.one=https://demo.applitools.com/hackathon.html?showAd=true
+url_adds.two=https://demo.applitools.com/hackathonV2.html?showAd=true
