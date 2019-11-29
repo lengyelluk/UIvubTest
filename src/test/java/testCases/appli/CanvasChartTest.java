@@ -1,24 +1,24 @@
 package testCases.appli;
 
-import com.test.sogeti.testcase.SGTTestDataProvider;
+import com.test.lengyel.testcase.FrameworkTestDataProvider;
 import org.testng.annotations.Test;
-import sgt.testcases.listeners.RegressionTestListener;
+import testCases.listeners.RegressionTestListener;
 
 public class CanvasChartTest extends RegressionTestListener {
 
-    @Test(dataProvider = "dataProvider", dataProviderClass = SGTTestDataProvider.class)
+    @Test(dataProvider = "dataProvider", dataProviderClass = FrameworkTestDataProvider.class)
     public void canvasChartTest(String testDataName) {
         setTestData(testDataName);
 
         //4 canvas chart test
-        scActions.goToLoginPageV1();
-        String validUserName = scActions.resolveTestData("validUserName");
-        String validPassword = scActions.resolveTestData("validPassword");
-        scActions.loginValid(validUserName, validPassword);
+        actions.goToLoginPageV1();
+        String validUserName = actions.resolveTestData("validUserName");
+        String validPassword = actions.resolveTestData("validPassword");
+        actions.loginValid(validUserName, validPassword);
 
-        scNavigation.goToCompareExpenses();
-        scActions.checkChartData2017_2018();
-        scNavigation.goToChartData2019();
+        navigation.goToCompareExpenses();
+        actions.checkChartData2017_2018();
+        navigation.goToChartData2019();
         //no check for 2019???
     }
 

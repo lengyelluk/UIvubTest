@@ -1,12 +1,18 @@
 package actions;
 
+import com.test.lengyel.actions.FrameworkActions;
+import com.test.lengyel.testcase.TestContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import pages.AppliAppPage;
+import pages.AppliChartPage;
+import pages.AppliLoginPage;
+
 import javax.swing.text.NavigationFilter;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 
-public class Actions extends FrameworkActins {
+public class Actions extends FrameworkActions {
 
     private static final Logger logger = LogManager.getLogger(Actions.class);
 

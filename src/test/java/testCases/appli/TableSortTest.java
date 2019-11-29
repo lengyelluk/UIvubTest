@@ -1,24 +1,26 @@
 package testCases.appli;
 
-import com.test.sogeti.testcase.SGTTestDataProvider;
+import com.test.lengyel.testcase.FrameworkTestDataProvider;
+import com.test.lengyel.testcase.TestDataProvider;
 import org.testng.annotations.Test;
-import sgt.testcases.listeners.RegressionTestListener;
+import testCases.listeners.RegressionTestListener;
+import testCases.listeners.ScreenshotOnFailureListener;
 
 public class TableSortTest extends RegressionTestListener {
 
-    @Test(dataProvider = "dataProvider", dataProviderClass = SGTTestDataProvider.class)
+    @Test(dataProvider = "dataProvider", dataProviderClass = FrameworkTestDataProvider.class)
     public void tableSortTest(String testDataName) {
         setTestData(testDataName);
 
         //3 sort table
-        scActions.goToLoginPageV1();
+        actions.goToLoginPageV1();
 
-        String validUserName = scActions.resolveTestData("validUserName");
-        String validPassword = scActions.resolveTestData("validPassword");
-        scActions.loginValid(validUserName, validPassword);
+        String validUserName = actions.resolveTestData("validUserName");
+        String validPassword = actions.resolveTestData("validPassword");
+        actions.loginValid(validUserName, validPassword);
 
         //3 sort table
-        scActions.checkSorting();
+        actions.checkSorting();
     }
 
 }

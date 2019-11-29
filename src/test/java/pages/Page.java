@@ -1,11 +1,11 @@
 package pages;
 
-import com.test.sogeti.constants.SGTConstants;
-import com.test.sogeti.gui.GuiElement;
-import com.test.sogeti.gui.SGTKindEnum;
-import com.test.sogeti.gui.web.SGTWebGuiActions;
-import com.test.sogeti.page.web.SGTWebPage;
-import com.test.sogeti.testcase.SGTTestContext;
+import com.test.lengyel.constants.FrameworkConstants;
+import com.test.lengyel.gui.FrameworkKindEnum;
+import com.test.lengyel.gui.GuiElement;
+import com.test.lengyel.gui.web.FrameworkWebGuiActions;
+import com.test.lengyel.page.web.FrameworkWebPage;
+import com.test.lengyel.testcase.TestContext;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -158,8 +158,8 @@ public class Page extends FrameworkWebPage {
 	public BigDecimal getBigDecimalValue(GuiElement guiElement) {
 		String priceString = "";
 		GuiElement completeAmount = new GuiElement();
-		completeAmount.setKind(SGTKindEnum.LABEL);
-		completeAmount.setIdentifier(SGTConstants.IDENTIFIER_XPATH);
+		completeAmount.setKind(FrameworkKindEnum.LABEL);
+		completeAmount.setIdentifier(FrameworkConstants.IDENTIFIER_XPATH);
 		completeAmount.setIdentValue("//*[@id='" + guiElement.getIdentValue() + "']/..");
 		if (isElementPresent(completeAmount))
 			priceString = getCurrentText(completeAmount);
@@ -287,22 +287,12 @@ public class Page extends FrameworkWebPage {
 	}
 
 
-	/***
-	 * Method to check if a Tab Change was successful
-	 * 
-	 * @param guiElementMarker  This is the element by which can be distinguished if
-	 *                          a tab change was successful
-	 * @param guiElementToClick This element should be clicked if the tab change was
-	 *                          not successful
-	 * @return
-	 */
-
 
 	public String trySetValue(String[] values, int i) {
 		try {
 			String returnValue = values[i];
-			if (returnValue.contains(SGTConstants.TESTDATA_ADDITION)) {
-				returnValue = returnValue.substring(0, returnValue.indexOf(SGTConstants.TESTDATA_ADDITION));
+			if (returnValue.contains(FrameworkConstants.TESTDATA_ADDITION)) {
+				returnValue = returnValue.substring(0, returnValue.indexOf(FrameworkConstants.TESTDATA_ADDITION));
 			}
 			return returnValue;
 		} catch (Exception e) {
@@ -365,8 +355,8 @@ public class Page extends FrameworkWebPage {
 	public void useRandomDropdownValue(GuiElement dropdownSelect, String label) {
 		//create list of webElements of all the dropdown options
 		GuiElement dropdownOptions = new GuiElement();
-		dropdownOptions.setKind(SGTKindEnum.LABEL);
-		dropdownOptions.setIdentifier(SGTConstants.IDENTIFIER_XPATH);
+		dropdownOptions.setKind(FrameworkKindEnum.LABEL);
+		dropdownOptions.setIdentifier(FrameworkConstants.IDENTIFIER_XPATH);
 		dropdownOptions.setIdentValue("//label[contains(@for, '" + label + "')]//following-sibling::div//div[contains(@class, 'dropdown-extended-arrow')]//following-sibling::ul//li[not(contains(@data-value, 'BLANK')) and not(@data-index='1')]");
 		List<WebElement> list = getAllMatchingElements(dropdownOptions);
 		int length = list.size();
@@ -489,8 +479,8 @@ public class Page extends FrameworkWebPage {
 	
 	public String getDropdownSelectedValue(GuiElement dropdown) {
 		GuiElement dropDownElement = new GuiElement();
-		dropDownElement.setIdentifier(SGTConstants.IDENTIFIER_XPATH);
-		dropDownElement.setKind(SGTKindEnum.SELECTWITHOUTTEXT);
+		dropDownElement.setIdentifier(FrameworkConstants.IDENTIFIER_XPATH);
+		dropDownElement.setKind(FrameworkKindEnum.SELECTWITHOUTTEXT);
 		dropDownElement.setName("selectedDropdown");
 		if (dropdown.isAjax())
 			dropDownElement.setAjax(true);
@@ -507,8 +497,8 @@ public class Page extends FrameworkWebPage {
 		replaceSearchString(dropdown, index);
 		
 		GuiElement dropDownElement = new GuiElement();
-		dropDownElement.setIdentifier(SGTConstants.IDENTIFIER_XPATH);
-		dropDownElement.setKind(SGTKindEnum.SELECTWITHOUTTEXT);
+		dropDownElement.setIdentifier(FrameworkConstants.IDENTIFIER_XPATH);
+		dropDownElement.setKind(FrameworkKindEnum.SELECTWITHOUTTEXT);
 		dropDownElement.setName("selectedDropdown");
 		if (dropdown.isAjax())
 			dropDownElement.setAjax(true);
@@ -529,8 +519,8 @@ public class Page extends FrameworkWebPage {
 	 */
 	public boolean checkDropdownSelected(GuiElement dropdown, String index) {
 		GuiElement dropDownElement = new GuiElement();
-		dropDownElement.setIdentifier(SGTConstants.IDENTIFIER_XPATH);
-		dropDownElement.setKind(SGTKindEnum.SELECTWITHOUTTEXT);
+		dropDownElement.setIdentifier(FrameworkConstants.IDENTIFIER_XPATH);
+		dropDownElement.setKind(FrameworkKindEnum.SELECTWITHOUTTEXT);
 		dropDownElement.setName("selectedDropdown");
 		if (dropdown.isAjax())
 			dropDownElement.setAjax(true);
@@ -552,8 +542,8 @@ public class Page extends FrameworkWebPage {
 	 */
 	public boolean checkDropdownSelected(GuiElement field) {
 		GuiElement dropDownElement = new GuiElement();
-		dropDownElement.setIdentifier(SGTConstants.IDENTIFIER_XPATH);
-		dropDownElement.setKind(SGTKindEnum.SELECTWITHOUTTEXT);
+		dropDownElement.setIdentifier(FrameworkConstants.IDENTIFIER_XPATH);
+		dropDownElement.setKind(FrameworkKindEnum.SELECTWITHOUTTEXT);
 		dropDownElement.setName("selectedDropdown");
 		if (field.isAjax())
 			dropDownElement.setAjax(true);

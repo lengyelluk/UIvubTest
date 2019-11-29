@@ -1,6 +1,8 @@
 package actions;
 
 
+import com.test.lengyel.constants.FrameworkConstants;
+
 public class Constants extends FrameworkConstants {
 
 	public static final String URL_V1 = "url";

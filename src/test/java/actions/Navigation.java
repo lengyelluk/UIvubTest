@@ -1,5 +1,12 @@
 package actions;
 
+import com.test.lengyel.actions.FrameworkActions;
+import com.test.lengyel.testcase.TestContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import pages.AppliAppPage;
+import pages.AppliChartPage;
+
 public class Navigation extends FrameworkActions {
 
     private static final Logger logger = LogManager.getLogger(Navigation.class);

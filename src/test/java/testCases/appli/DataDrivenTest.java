@@ -1,25 +1,25 @@
 package testCases.appli;
 
-import com.test.sogeti.testcase.SGTTestDataProvider;
+import com.test.lengyel.testcase.FrameworkTestDataProvider;
 import org.testng.annotations.Test;
-import sgt.testcases.listeners.RegressionTestListener;
+import testCases.listeners.RegressionTestListener;
 
 public class DataDrivenTest extends RegressionTestListener {
 
-    @Test(dataProvider = "dataProvider", dataProviderClass = SGTTestDataProvider.class)
+    @Test(dataProvider = "dataProvider", dataProviderClass = FrameworkTestDataProvider.class)
     public void dataDrivenTest(String testDataName) {
         setTestData(testDataName);
 
         //2. Data driven test
-        scActions.goToLoginPageV1();
+        actions.goToLoginPageV1();
 
-        String validUserName = scActions.resolveTestData("validUserName");
-        String validPassword = scActions.resolveTestData("validPassword");
+        String validUserName = actions.resolveTestData("validUserName");
+        String validPassword = actions.resolveTestData("validPassword");
 
-        scActions.loginInvalid("", "");
-        scActions.loginInvalid(validUserName, "");
-        scActions.loginInvalid("", validPassword);
-        scActions.loginValid(validUserName, validPassword);
+        actions.loginInvalid("", "");
+        actions.loginInvalid(validUserName, "");
+        actions.loginInvalid("", validPassword);
+        actions.loginValid(validUserName, validPassword);
     }
 
 }

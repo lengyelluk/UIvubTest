@@ -1,16 +1,16 @@
-<page xmlns="http://sogeti.com/SGTCommons" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://sogeti.com/SGTCommons http://sogeti.com/SGTCommons/SGTSelectors.xsd">
-	<SGTGuiElement>
+<page xmlns="http://lengyel.com/Framework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://lengyel.com/Framework http://lengyel.com/Framework/SGTSelectors.xsd">
+	<GuiElement>
 		<name>canvas</name>
 		<kind>label</kind>
 		<identifier>css</identifier>
 		<identValue>canvas#canvas</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>showDataForNextYearBtn</name>
 		<kind>button</kind>
 		<identifier>css</identifier>
 		<identValue>button#addDataset</identValue>
-	</SGTGuiElement>
+	</GuiElement>
 
 </page>

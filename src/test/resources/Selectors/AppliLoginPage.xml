@@ -1,105 +1,105 @@
-<page xmlns="http://sogeti.com/SGTCommons" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://sogeti.com/SGTCommons http://sogeti.com/SGTCommons/SGTSelectors.xsd">
-	<SGTGuiElement>
+<page xmlns="http://lengyel.com/Framework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://lengyel.com/Framework http://lengyel.com/Framework/SGTSelectors.xsd">
+	<GuiElement>
 		<name>toggleButton</name>
 		<kind>button</kind>
 		<identifier>xpath</identifier>	
 		<identValue>//div[@class='logo-w']//img</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>loginButton</name>
 		<kind>button</kind>
 		<identifier>css</identifier>
 		<identValue>button#log-in</identValue>
-	</SGTGuiElement><SGTGuiElement>
+	</GuiElement><GuiElement>
 		<name>signInButton</name>
 		<kind>button</kind>
 		<identifier>css</identifier>
 		<identValue>a#log-in</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>usernameTextField</name>
 		<kind>textfield</kind>
 		<identifier>css</identifier>
 		<identValue>input#username</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>passwordTextField</name>
 		<kind>textfield</kind>
 		<identifier>css</identifier>
 		<identValue>input#password</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>loginFormHeader</name>
 		<kind>label</kind>
 		<identifier>css</identifier>
 		<identValue>h4.auth-header</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>usernameLabel</name>
 		<kind>label</kind>
 		<identifier>xpath</identifier>
 		<identValue>//input[@id='username']/preceding-sibling::label</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>passwordLabel</name>
 		<kind>label</kind>
 		<identifier>xpath</identifier>
 		<identValue>//input[@id='password']/preceding-sibling::label</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>rememberMeCheckbox</name>
 		<kind>label</kind>
 		<identifier>css</identifier>
 		<identValue>input.form-check-input</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>twitterIcon</name>
 		<kind>label</kind>
 		<identifier>xpath</identifier>
 		<identValue>//div[@class='buttons-w']//img[contains(@src, 'twitter')]</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>facebookIcon</name>
 		<kind>label</kind>
 		<identifier>xpath</identifier>
 		<identValue>//div[@class='buttons-w']//img[contains(@src, 'facebook')]</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>linkedinIcon</name>
 		<kind>label</kind>
 		<identifier>xpath</identifier>
 		<identValue>//div[@class='buttons-w']//img[contains(@src, 'linkedin')]</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>rememberMeLabel</name>
 		<kind>label</kind>
 		<identifier>css</identifier>
 		<identValue>label.form-check-label</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>rememberMeCheckbox</name>
 		<kind>label</kind>
 		<identifier>css</identifier>
 		<identValue>input.form-check-input</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>loginFailedMsg</name>
 		<kind>label</kind>
 		<identifier>css</identifier>
 		<identValue>div.alert-warning</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>maleIcon</name>
 		<kind>label</kind>
 		<identifier>xpath</identifier>
 		<identValue>//input[@id='username']//following-sibling::div[contains(@class, 'os-icon-user-male-circle')]</identValue>
-	</SGTGuiElement>
-	<SGTGuiElement>
+	</GuiElement>
+	<GuiElement>
 		<name>fingerprintIcon</name>
 		<kind>label</kind>
 		<identifier>xpath</identifier>
 		<identValue>//input[@id='password']//following-sibling::div[contains(@class, 'os-icon-fingerprint')]</identValue>
-	</SGTGuiElement>
+	</GuiElement>
 
 </page>

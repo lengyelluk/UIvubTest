@@ -1,24 +1,24 @@
 package testCases.appli;
 
-import com.test.sogeti.testcase.SGTTestDataProvider;
+import com.test.lengyel.testcase.FrameworkTestDataProvider;
 import org.testng.annotations.Test;
-import sgt.testcases.listeners.RegressionTestListener;
+import testCases.listeners.RegressionTestListener;
 
 public class LoginPageUIElementsTest extends RegressionTestListener {
 
-    @Test(dataProvider = "dataProvider", dataProviderClass = SGTTestDataProvider.class)
+    @Test(dataProvider = "dataProvider", dataProviderClass = FrameworkTestDataProvider.class)
     public void loginPageUIElementsTest(String testDataName) {
         setTestData(testDataName);
 
 
-        scActions.goToLoginPageV1();
+        actions.goToLoginPageV1();
         //1. Login Pge UI Elements Test
-        scCheck.checkHeader();
-        scCheck.checkLabels();
-        scCheck.checkIconsPresent();
-        scCheck.checkTextFieldsPlaceholders();
-        scCheck.checkLoginButton();
-        scCheck.checkRememberMe();
-        scCheck.checkSocialIconsPresent();
+        check.checkHeader();
+        check.checkLabels();
+        check.checkIconsPresent();
+        check.checkTextFieldsPlaceholders();
+        check.checkLoginButton();
+        check.checkRememberMe();
+        check.checkSocialIconsPresent();
     }
 }

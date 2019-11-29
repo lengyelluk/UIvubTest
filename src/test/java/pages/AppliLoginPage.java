@@ -1,7 +1,7 @@
 package pages;
 
-import com.test.sogeti.gui.SGTGuiElement;
-import com.test.sogeti.testcase.SGTTestContext;
+import com.test.lengyel.gui.GuiElement;
+import com.test.lengyel.testcase.TestContext;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,8 +18,8 @@ public class AppliLoginPage extends Page {
 
     public GuiElement
 
-            //buttons
-            toggleButton, loginButton, signInButton,
+    //buttons
+    toggleButton, loginButton, signInButton,
     //textfield
     usernameTextField, passwordTextField,
     //header
@@ -173,11 +173,11 @@ public class AppliLoginPage extends Page {
     }
 
 
-    public String getLabelText(SGTGuiElement label) {
+    public String getLabelText(GuiElement label) {
         return getCurrentText(label);
     }
 
-    public String getPlaceholderText(SGTGuiElement textfield) {
+    public String getPlaceholderText(GuiElement textfield) {
         return getAttributeValue(textfield, "placeholder");
     }
 

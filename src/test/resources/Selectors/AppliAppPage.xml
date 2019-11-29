@@ -1,69 +1,69 @@
-<page xmlns="http://sogeti.com/SGTCommons" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://sogeti.com/SGTCommons http://sogeti.com/SGTCommons/SGTSelectors.xsd">
-    <SGTGuiElement>
+<page xmlns="http://lengyel.com/Framework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://lengyel.com/Framework http://lengyel.com/Framework/FrameworkSelectors.xsd">
+    <GuiElement>
         <name>amountHeader</name>
         <kind>button</kind>
         <identifier>css</identifier>
         <identValue>th#amount</identValue>
-    </SGTGuiElement>
-    <SGTGuiElement>
+    </GuiElement>
+    <GuiElement>
         <name>amountValues</name>
         <kind>label</kind>
         <identifier>xpath</identifier>
         <identValue>//tr/td[contains(@class, 'text-right')]/span</identValue>
-    </SGTGuiElement>
-    <SGTGuiElement>
+    </GuiElement>
+    <GuiElement>
         <name>statusValues</name>
         <kind>label</kind>
         <identifier>xpath</identifier>
         <identValue>//td[@class='nowrap']//span[2]</identValue>
-    </SGTGuiElement>
-    <SGTGuiElement>
+    </GuiElement>
+    <GuiElement>
         <name>statusIcons</name>
         <kind>label</kind>
         <identifier>xpath</identifier>
         <identValue>//td[@class='nowrap']//span[1]</identValue>
-    </SGTGuiElement>
-    <SGTGuiElement>
+    </GuiElement>
+    <GuiElement>
         <name>dateValues</name>
         <kind>label</kind>
         <identifier>xpath</identifier>
         <identValue>//td[not(@class)]//span[1]</identValue>
-    </SGTGuiElement>
-    <SGTGuiElement>
+    </GuiElement>
+    <GuiElement>
         <name>timeValues</name>
         <kind>label</kind>
         <identifier>xpath</identifier>
         <identValue>//td[not(@class)]//span[contains(@class, 'smaller')]</identValue>
-    </SGTGuiElement>
-    <SGTGuiElement>
+    </GuiElement>
+    <GuiElement>
         <name>companyLogos</name>
         <kind>label</kind>
         <identifier>xpath</identifier>
         <identValue>//td[@class='cell-with-media']//img</identValue>
-    </SGTGuiElement>
-    <SGTGuiElement>
+    </GuiElement>
+    <GuiElement>
         <name>companyValues</name>
         <kind>label</kind>
         <identifier>xpath</identifier>
         <identValue>//td[@class='cell-with-media']//span</identValue>
-    </SGTGuiElement>
-    <SGTGuiElement>
+    </GuiElement>
+    <GuiElement>
         <name>categoryValues</name>
         <kind>label</kind>
         <identifier>xpath</identifier>
         <identValue>//td[@class='text-center']//a</identValue>
-    </SGTGuiElement>
-    <SGTGuiElement>
+    </GuiElement>
+    <GuiElement>
         <name>compareExpenses</name>
         <kind>button</kind>
         <identifier>css</identifier>
         <identValue>a#showExpensesChart</identValue>
-    </SGTGuiElement>
-    <SGTGuiElement>
+    </GuiElement>
+    <GuiElement>
         <name>flashSaleAdds</name>
         <kind>label</kind>
         <identifier>xpath</identifier>
         <identValue>//img[contains(@src, '.gif')]</identValue>
-    </SGTGuiElement>
+    </GuiElement>
 </page>

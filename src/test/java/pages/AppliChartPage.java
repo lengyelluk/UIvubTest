@@ -1,7 +1,7 @@
 package pages;
 
-import com.test.sogeti.gui.SGTGuiElement;
-import com.test.sogeti.testcase.SGTTestContext;
+import com.test.lengyel.gui.GuiElement;
+import com.test.lengyel.testcase.TestContext;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

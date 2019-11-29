@@ -1,15 +1,12 @@
 package pages;
 
-import com.test.sogeti.gui.SGTGuiElement;
-import com.test.sogeti.testcase.SGTTestContext;
+import com.test.lengyel.gui.GuiElement;
+import com.test.lengyel.testcase.TestContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 
 import java.util.*;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
-
 public class AppliAppPage extends Page {
 
     private static final Logger logger = LogManager

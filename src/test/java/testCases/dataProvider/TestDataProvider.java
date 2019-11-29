@@ -1,10 +1,10 @@
 package testCases.dataProvider;
 
 import com.google.common.base.Strings;
-import com.test.sogeti.constants.SGTConstants;
-import com.test.sogeti.helper.SGTResourceMapper;
-import com.test.sogeti.testcase.SGTPropertiesManager;
-import com.test.sogeti.testcase.SGTTestContextFactory;
+import com.test.lengyel.constants.FrameworkConstants;
+import com.test.lengyel.helper.FrameworkResourceMapper;
+import com.test.lengyel.testcase.FrameworkPropertiesManager;
+import com.test.lengyel.testcase.TestContextFactory;
 import org.testng.annotations.DataProvider;
 
 import java.lang.reflect.Method;
@@ -19,25 +19,25 @@ public class TestDataProvider {
 		String specificMarket = System.getProperty("market");
 		System.out.println("Specific Market="+specificMarket);
 
-		String customPath = SGTPropertiesManager.getFunctionalProperty(null,
-				SGTConstants.CUSTOM_TESTDATA_PATH_PROPERTY, true);
+		String customPath = FrameworkPropertiesManager.getFunctionalProperty(null,
+				FrameworkConstants.CUSTOM_TESTDATA_PATH_PROPERTY, true);
 		if (Strings.isNullOrEmpty(customPath)) {
-			customPath = SGTConstants.TESTDATA_PATH;
+			customPath = FrameworkConstants.TESTDATA_PATH;
 		}
 		Object[][] returnValue;
 		
 		if (specificMarket!=null && !specificMarket.isEmpty() && specificMarket.equals("ALL")) {
 			System.out.println("Specific Market="+specificMarket+".Prepare test for all markets");
-			returnValue = filterFoundFiles(SGTResourceMapper
+			returnValue = filterFoundFiles(FrameworkResourceMapper
 					.getFileNamesWithWildCard(testCaseName + "_*", customPath));
 		} 
 		else if (specificMarket!=null && !specificMarket.isEmpty() && !specificMarket.equals("ALL")) {
 			System.out.println("Specific Market="+specificMarket+".Prepare test only for this market");
-			returnValue = filterFoundFiles(SGTResourceMapper
+			returnValue = filterFoundFiles(FrameworkResourceMapper
 					.getFileNamesWithWildCard(testCaseName + "_M-"+specificMarket+"*", customPath));
 		}else {
 			System.out.println("Specific Market is not set. Prepare test for all markets");
-			returnValue = filterFoundFiles(SGTResourceMapper
+			returnValue = filterFoundFiles(FrameworkResourceMapper
 					.getFileNamesWithWildCard(testCaseName + "_*", customPath));
 		}
 		if (returnValue.length == 0) {
@@ -75,18 +75,18 @@ public class TestDataProvider {
 	}
 
 	private static boolean isAdditionMatching(String filename) {
-		String additionFromProperties = SGTTestContextFactory
+		String additionFromProperties = TestContextFactory
 				.getFunctionalProperty(
-						SGTConstants.NUMBERCACHE_ADDITION_PROPERTY)
+						FrameworkConstants.NUMBERCACHE_ADDITION_PROPERTY)
 				.toLowerCase();
 		String additionFromFileName = filename.substring(
-				filename.indexOf(SGTConstants.TESTDATA_ADDITION)
-						+ SGTConstants.TESTDATA_ADDITION.length())
+				filename.indexOf(FrameworkConstants.TESTDATA_ADDITION)
+						+ FrameworkConstants.TESTDATA_ADDITION.length())
 				.toLowerCase();
 		return additionFromFileName.equals(additionFromProperties);
 	}
 
 	private static boolean hasAddition(String filename) {
-		return filename.contains(SGTConstants.TESTDATA_ADDITION);
+		return filename.contains(FrameworkConstants.TESTDATA_ADDITION);
 	}
 }

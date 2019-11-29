@@ -1,7 +1,11 @@
 package actions;
 
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
+import com.test.lengyel.actions.FrameworkActions;
+import com.test.lengyel.testcase.TestContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import pages.AppliLoginPage;
+
 
 public class Check extends FrameworkActions {
 

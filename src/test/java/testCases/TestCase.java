@@ -1,24 +1,24 @@
 package testCases;
 
-import com.test.sogeti.constants.SGTConstants;
-import com.test.sogeti.testcase.SGTTestCase;
-import com.test.sogeti.testcase.web.SGTWebTestCase;
+import actions.*;
+import com.test.lengyel.constants.FrameworkConstants;
+import com.test.lengyel.testcase.FrameworkTestCase;
+import com.test.lengyel.testcase.web.FrameworkWebTestCase;
 import org.testng.IInvokedMethod;
 import org.testng.ITestResult;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.internal.InvokedMethod;
-import sgt.actions.*;
-import sgt.testcases.listeners.SCScreenshotOnFailureListener;
+import testCases.listeners.ScreenshotOnFailureListener;
 
 import java.lang.reflect.Field;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Listeners(SCScreenshotOnFailureListener.class)
-public class TestCase extends SGTWebTestCase {
+@Listeners(ScreenshotOnFailureListener.class)
+public class TestCase extends FrameworkWebTestCase {
 
 	protected Actions actions;
 	protected Navigation navigation;
@@ -48,11 +48,11 @@ public class TestCase extends SGTWebTestCase {
 	}
 
 	public void setSubDomain(String subdomain) {
-		SCTestCase.subDomain = subdomain;
+		TestCase.subDomain = subdomain;
 	}
 
 	public void setDomain(String domain) {
-		SCTestCase.domain = domain;
+		TestCase.domain = domain;
 	}
 
 	public String getDomain() {
@@ -76,7 +76,7 @@ public class TestCase extends SGTWebTestCase {
 	}
 
 	protected String getAddition() {
-		String numberCacheAddition = getProperty(SGTConstants.NUMBERCACHE_ADDITION_PROPERTY);
+		String numberCacheAddition = getProperty(FrameworkConstants.NUMBERCACHE_ADDITION_PROPERTY);
 		if (numberCacheAddition == null) {
 			numberCacheAddition = "";
 		}
@@ -88,7 +88,7 @@ public class TestCase extends SGTWebTestCase {
 		try {
 			privateStringField = InvokedMethod.class.getDeclaredField("m_instance");
 			privateStringField.setAccessible(true);
-			SGTTestCase fieldValue = (SGTTestCase) privateStringField.get(method);
+			FrameworkTestCase fieldValue = (FrameworkTestCase) privateStringField.get(method);
 			fieldValue.getTestContext().setTestChainID(testChainID);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -98,8 +98,8 @@ public class TestCase extends SGTWebTestCase {
 	protected String trySetValue(String[] values, int i) {
 		try {
 			String returnValue = values[i];
-			if (returnValue.contains(SGTConstants.TESTDATA_ADDITION)) {
-				returnValue = returnValue.substring(0, returnValue.indexOf(SGTConstants.TESTDATA_ADDITION));
+			if (returnValue.contains(FrameworkConstants.TESTDATA_ADDITION)) {
+				returnValue = returnValue.substring(0, returnValue.indexOf(FrameworkConstants.TESTDATA_ADDITION));
 			}
 			return returnValue;
 		} catch (Exception e) {
