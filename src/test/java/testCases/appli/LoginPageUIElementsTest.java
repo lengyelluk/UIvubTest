@@ -11,7 +11,7 @@ public class LoginPageUIElementsTest extends RegressionTestListener {
         setTestData(testDataName);
 
 
-        actions.goToLoginPageV1();
+        actions.goToLoginPage();
         //1. Login Pge UI Elements Test
         check.checkHeader();
         check.checkLabels();
@@ -20,5 +20,6 @@ public class LoginPageUIElementsTest extends RegressionTestListener {
         check.checkLoginButton();
         check.checkRememberMe();
         check.checkSocialIconsPresent();
+        //checkVerificationErrors();
     }
 }

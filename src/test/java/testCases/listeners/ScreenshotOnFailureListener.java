@@ -4,12 +4,12 @@ import com.test.lengyel.constants.FrameworkConstants;
 import com.test.lengyel.testcase.listener.FrameworkScreenshotOnFailureListener;
 import org.testng.IInvokedMethod;
 import org.testng.ITestResult;
+import testCases.TestCase;
 
-public class ScreenshotOnFailureListener extends FrameworkScreenshotOnFailureListener {
+public class ScreenshotOnFailureListener extends TestCase {
 
-	@Override
+
 	public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
-		super.afterInvocation(method, testResult);
 		if (method.isTestMethod()) {
 			if (!testResult.isSuccess()) {
 				String logPath = getTechnicalProperty(FrameworkConstants.CURRENT_LOGPATH_PROPERTY);

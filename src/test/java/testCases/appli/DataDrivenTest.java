@@ -11,7 +11,7 @@ public class DataDrivenTest extends RegressionTestListener {
         setTestData(testDataName);
 
         //2. Data driven test
-        actions.goToLoginPageV1();
+        actions.goToLoginPage();
 
         String validUserName = actions.resolveTestData("validUserName");
         String validPassword = actions.resolveTestData("validPassword");

@@ -31,8 +31,8 @@ public class Actions extends FrameworkActions {
         check = new Check(testContext);
     }
 
-    public void goToLoginPageV1() {
-        navigation.loadLoginPageV1();
+    public void goToLoginPage() {
+        navigation.loadLoginPage();
     }
 
 

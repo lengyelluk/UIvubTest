@@ -13,7 +13,7 @@ public class TableSortTest extends RegressionTestListener {
         setTestData(testDataName);
 
         //3 sort table
-        actions.goToLoginPageV1();
+        actions.goToLoginPage();
 
         String validUserName = actions.resolveTestData("validUserName");
         String validPassword = actions.resolveTestData("validPassword");

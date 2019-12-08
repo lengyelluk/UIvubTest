@@ -11,7 +11,7 @@ public class CanvasChartTest extends RegressionTestListener {
         setTestData(testDataName);
 
         //4 canvas chart test
-        actions.goToLoginPageV1();
+        actions.goToLoginPage();
         String validUserName = actions.resolveTestData("validUserName");
         String validPassword = actions.resolveTestData("validPassword");
         actions.loginValid(validUserName, validPassword);

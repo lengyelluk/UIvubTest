@@ -1,15 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="TraditionalTestSuite">
 	<listeners>
-		<listener class-name="sgt.testcases.listeners.SCScreenshotOnFailureListener" />
+		<listener class-name="testCases.listeners.RegressionTestListener" />
 	</listeners>
 	<test name="TraditionalTests">
 		<classes>
-			<class name="sgt.testcases.appli.LoginPageUIElementsTest" />
-			<class name="sgt.testcases.appli.DataDrivenTest" />
-			<class name="sgt.testcases.appli.TableSortTest" />
-			<class name="sgt.testcases.appli.CanvasChartTest" />
-			<class name="sgt.testcases.appli.DynamicContentTest" />
+			<class name="testCases.appli.LoginPageUIElementsTest" />
+			<class name="testCases.appli.DataDrivenTest" />
 		</classes>
 	</test>
 </suite>

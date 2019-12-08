@@ -14,7 +14,7 @@ public class DynamicContentTest extends RegressionTestListener {
         String validUserName = actions.resolveTestData("validUserName");
         String validPassword = actions.resolveTestData("validPassword");
 
-        navigation.goToLoginPageV1WithAdds();
+        navigation.goToLoginPageWithAdds();
         actions.loginValid(validUserName, validPassword);
         actions.checkAdds(numOfAddsToBeFound);
     }

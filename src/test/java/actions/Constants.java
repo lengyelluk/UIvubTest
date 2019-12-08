@@ -5,11 +5,8 @@ import com.test.lengyel.constants.FrameworkConstants;
 
 public class Constants extends FrameworkConstants {
 
-	public static final String URL_V1 = "url";
-	public static final String URL_V1_ADDS = "url_adds";
-	public static final String URL_V2 = "url_v2";
-	public static final String URL_SC_PROPERTY = "url_sc";
-	public static final String URL_PC_PROPERTY = "url_pc";
+	public static final String URL = "url";
+	public static final String URL_ADDS = "url_adds";
 	public static final String TESTRUN_START_TIME_PROPERTY = "testrunStarttime";
 	public static final String INSERT_TESTRUN_PROPERTY = "insertTestrun";
 	public static final String TESTSUITE_NAME_PROPERTY = "testSuiteName";

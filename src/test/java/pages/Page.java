@@ -27,58 +27,18 @@ public class Page extends FrameworkWebPage {
 		setGuiActions(new FrameworkWebGuiActions());
 	}
 
-	public GuiElement profileIconButton, preventDoubleClickLayer, caseDetailsStatusLabel, leadDetailsBusinessTriggerLabel,
-	spinnerElement, popupMessage, auraLoadingBox, errorMsgReload;
-	
-	public void waitForMainPageToLoad() {
-		//loading box is hidden once main part of the page is loaded => style=display: none;
-		waitForElementWithAttribute(auraLoadingBox, "style", "display: none;", 60);
-		sleep(5000);
-	}
-
-	
-	/**
-	 * it looks like the only attribute of the checkboxes that can help us to identify the status is the defaultchecked attribute.
-	 * For checkboxes that are activated by default it is present with value 'true'. The attribute checked does not change 
-	 * dynamically, when activating/deactivating the checkbox, hence, using only the default status in the test (assuming we always
-	 * know when we clicked the checkbox)
-	 * @param checkbox
-	 * @return true if the checkbox should be checked by default
-	 */
-	private boolean getCheckboxDefaultState(GuiElement checkbox) {
-		String checkboxState = getAttributeValue(checkbox, "defaultchecked");
-		return checkboxState != null;
-	}
-	
-	
-	public void activateCheckbox(GuiElement checkbox) {
-		waitForElementVisible(checkbox);
-		scrollTo(checkbox);
-		
-		//true if the checkbox default state is checked
-		boolean checkboxState = getCheckboxDefaultState(checkbox);
-		logger.info("Checking if checkbox is already checked. Status: " + checkboxState);
-		//only click if the default state is not checked
-		if(!checkboxState)
-			click(checkbox);	
-	}
-	
-	
-
 	public void click(GuiElement guiElement) {
 
 		String guiElementName = resolveTestData("id_logging_element");
 		System.err.println("[Click] ->" + guiElement.getName());
 
 		super.click(guiElement);
-		waitForSCToFinish();
 	}
 	
 
 	public void clickDirty(GuiElement guiElement) {
 		System.err.println("[Click Dirty] ->" + guiElement.getName());
 		super.clickDirty(guiElement);
-		waitForSCToFinish();
 	}
 
 	public void useCorrectValue(GuiElement guiElement) {
@@ -89,7 +49,6 @@ public class Page extends FrameworkWebPage {
 			scrollTo(guiElement);
 			click(guiElement);
 			super.useCorrectValue(guiElement);
-			waitForSCToFinish();
 		} else {
 			logger.error("Field " + guiElement.getName() + " not enabled. Skipping...");
 		}
@@ -99,51 +58,28 @@ public class Page extends FrameworkWebPage {
 		// click needed to focus element
 		click(guiElement);
 		super.useCorrectValue(guiElement, id);
-		waitForSCToFinish();
 	}
 
 	public void useSpecifiedValue(GuiElement guiElement, String value) {
 		String guiElementName = resolveTestData("id_logging_element");
 		
 		super.useSpecifiedValue(guiElement, value);
-		waitForSCToFinish();	
 	}
 
 	public void useSpecifiedValue(GuiElement guiElement, int value) {
 		// click needed to focus element
 		click(guiElement);
 		super.useSpecifiedValue(guiElement, value);
-		waitForSCToFinish();
 	}
 
 	public void sendTab(GuiElement guiElement) {
 		super.sendTab(guiElement);
-		waitForSCToFinish();
 	}
 
 	public void clearInput(GuiElement guiElement) {
 		super.clearInput(guiElement);
-		waitForSCToFinish();
 	}
 
-	public void waitForSCToFinish() {
-		/*logger.info("--> Waiting for SC to finish loading");
-		waitForPageToLoad(30);
-		waitForSpinnerToHide();
-		checkErrorMsgWithReload();
-		if (isElementPresent(profileIconButton)) {
-			scrollTo(profileIconButton);
-		}
-		logger.info("<-- SC ready again");*/
-	}
-	
-	public void checkErrorMsgWithReload() {
-		if(isElementPresent(errorMsgReload)) {
-			throw new RuntimeException("[ERROR] Pop-up message that the same data were modified"
-					+ " during the session displayed and asked to reload the page. Ending the test");
-		}
-	}
-	
 	public void zoomPageOut(String zoom) {
 		WebDriver driver = getTestContext().getDriver();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -313,7 +249,7 @@ public class Page extends FrameworkWebPage {
 
 
 	/**
-	 * added by Lukas, to verify if element is present in base frame, after check it
+	 * to verify if element is present in base frame, after check it
 	 * switches back to default frame
 	 * 
 	 * @param guiElementInIFrame
@@ -327,7 +263,7 @@ public class Page extends FrameworkWebPage {
 	}
 	
 	/**
-	 * added by Lukas, to switch to base frame only if not already in base frame
+	 * to switch to base frame only if not already in base frame
 	 */
 	public void switchToBase() {
 		int size = this.getTestContext().getDriver().findElements(By.tagName("iframe")).size();
@@ -340,7 +276,7 @@ public class Page extends FrameworkWebPage {
 
 	
 	/**
-	 * added by Lukas: method should find a dropdown arrow and click it which would
+	 * method should find a dropdown arrow and click it which would
 	 * expand the dropdown, then save all dropdown options in the list and check if the dropdown option
 	 * in test data is also in dropdown options
 	 * if dropdown option in test data is in dropdown options => select the dropdown option specified in test data
@@ -412,7 +348,7 @@ public class Page extends FrameworkWebPage {
 	
 	
 	/**
-	 * added by Lukas: used to select random dropdown options in case two clicks
+	 * used to select random dropdown options in case two clicks
 	 * are needed (to expand the dropdown and click on the desired dropdown option).
 	 * Under testing => two elements are needed => one that targets the element to
 	 * expand dropdown, other that captures all the dropdown options, so they can
@@ -511,7 +447,7 @@ public class Page extends FrameworkWebPage {
 		return dropdownText;
 	}
 	
-	/**added by Lukas: to check if a dropdown in contact details section
+	/**to check if a dropdown in contact details section
 	 * has a value
 	 * @param dropdown - specific dropdown of contact section
 	 * @param index - index of desired section => private or business section
@@ -536,7 +472,7 @@ public class Page extends FrameworkWebPage {
 	}
 	
 	/**
-	 * added by Lukas: to check if a value is selected in dropdown
+	 * to check if a value is selected in dropdown
 	 * @param field => dropdown element used to expand dropdown
 	 * @return true => if a value is selected in dropdown
 	 */
@@ -562,19 +498,5 @@ public class Page extends FrameworkWebPage {
 		waitForElementVisible(guiElement, 30);
 		return isElementPresent(guiElement);
 	}
-	
-	public void waitForSpinnerToHide() {
-		logger.info("Waiting for spinners to be hidden");
-		waitForElementToHide(spinnerElement, 30);
-		logger.info("Spinner should not be present");
-	}
-	
-	public void waitForMessageToHide() {
-		logger.info("Waiting for message to be hidden");
-		waitForElementToHide(popupMessage, 30);
-		logger.info("Spinner should not be present");
-	}
-	
-	
 	
 }		

@@ -3,6 +3,7 @@ package testCases;
 import actions.*;
 import com.test.lengyel.constants.FrameworkConstants;
 import com.test.lengyel.testcase.FrameworkTestCase;
+import com.test.lengyel.testcase.listener.FrameworkScreenshotOnFailureListener;
 import com.test.lengyel.testcase.web.FrameworkWebTestCase;
 import org.testng.IInvokedMethod;
 import org.testng.ITestResult;
@@ -17,7 +18,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Listeners(ScreenshotOnFailureListener.class)
+@Listeners(FrameworkScreenshotOnFailureListener.class)
 public class TestCase extends FrameworkWebTestCase {
 
 	protected Actions actions;
@@ -80,7 +81,8 @@ public class TestCase extends FrameworkWebTestCase {
 		if (numberCacheAddition == null) {
 			numberCacheAddition = "";
 		}
-		return numberCacheAddition;
+	//	return numberCacheAddition;
+		return "TWO";
 	}
 
 	protected void setTestChainID(IInvokedMethod method, String testChainID) {

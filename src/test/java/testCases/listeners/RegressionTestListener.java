@@ -5,6 +5,7 @@ import com.test.lengyel.actions.FrameworkAssertActions;
 import com.test.lengyel.dependency.FrameworkDependencyManager;
 import com.test.lengyel.dependency.FrameworkTestCaseStatusEnum;
 import com.test.lengyel.gui.web.FrameworkDriverFactory;
+import com.test.lengyel.testcase.FrameworkTestCase;
 import com.test.lengyel.testcase.TestContextFactory;
 import org.testng.*;
 import org.testng.annotations.AfterSuite;
@@ -18,8 +19,8 @@ public class RegressionTestListener extends TestCase implements IInvokedMethodLi
 
 	private static String testrunStartTime = null;
 	private static boolean insertDB = false;
-	private static String testsystem = "POS";
-	private static String testsuiteDefault = "Regressiontest";
+	private static String testsystem = "Applitools App";
+	private static String testsuiteDefault = "Hackathon";
 	
 
 	@BeforeSuite
@@ -50,18 +51,12 @@ public class RegressionTestListener extends TestCase implements IInvokedMethodLi
 	public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
 		if (method.isTestMethod()) {
 			String test = null;
-			String market = null;
-			String type = null;
-			String brand = null;
 			String testDataName;
 			FrameworkTestCaseStatusEnum status = null;
 			if (testResult.getParameters()[0] != null) {
 				testDataName = (String) testResult.getParameters()[0];
 				String[] values = testDataName.split("_");
 				test = trySetValue(values, 0);
-				market = trySetValue(values, 1);
-				type = trySetValue(values, 2);
-				brand = trySetValue(values, 3);
 			} else {
 				testDataName = method.getTestMethod().getRealClass().getSimpleName();
 			}
@@ -69,22 +64,22 @@ public class RegressionTestListener extends TestCase implements IInvokedMethodLi
 			testResultEntity.setTestrunStarttime(testrunStartTime);
 			testResultEntity.setTestcaseName(test);
 			testResultEntity.setCheckpoints(FrameworkAssertActions.getCheckPointsString());
-			
-			testResultEntity.setDomain(getDomain());
-			setDomain("");
-			testResultEntity.setSubDomain(getSubDomain());
-			setSubDomain("");
-			
-			if (testResult.getThrowable() != null) {
-				if (testResult.getThrowable().getClass().equals(SkipException.class)) {
+
+			//check if checkpoints contain NOK
+			boolean testFailed = testResultEntity.getCheckpoints().contains("[NOK]");
+
+			//if (testResult.getThrowable() != null) {
+			if(testFailed) {
+				if (testResult.getThrowable() != null && testResult.getThrowable().getClass().equals(SkipException.class)) {
 					testResultEntity.setTeststatus(TestResultEntity.BLOCKED);
 					testResultEntity.setErrortext(testResult.getThrowable().getMessage());
 					testResultEntity.setCauseOfError(testResult.getThrowable().getMessage());
 					status = FrameworkTestCaseStatusEnum.BLOCKED;
 				} else {
 					testResultEntity.setTeststatus(TestResultEntity.FAILED);
-					testResultEntity.setErrortext(testResult.getThrowable().getMessage());
-					testResultEntity.setErrorline(testResult.getThrowable());
+					testResultEntity.setErrortext("Error");
+					//testResultEntity.setErrortext(testResult.getThrowable().getMessage());
+					//testResultEntity.setErrorline(testResult.getThrowable());
 					try {
 						testDataName = testDataName.substring(0, testDataName.indexOf("#"));
 					} catch (Exception e) {
@@ -127,7 +122,8 @@ public class RegressionTestListener extends TestCase implements IInvokedMethodLi
 			testChainID += testResultEntity.getCustomerType();
 		if (testResultEntity.getFinancingType() != null)
 			testChainID += testResultEntity.getFinancingType();
-		return testChainID;
+		//return testChainID;
+		return "HAC";
 	}
 
 	private String getScreenshotLink(String testDataName) {

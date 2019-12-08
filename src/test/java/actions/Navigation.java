@@ -19,7 +19,7 @@ public class Navigation extends FrameworkActions {
         super(testContext, testDataName);
     }
 
-    public void loadLoginPageV1() { loadUrl(getProperty(Constants.URL_V1));}
+    public void loadLoginPage() { loadUrl(getProperty(Constants.URL));}
 
     public void goToCompareExpenses() {
         getPage(AppliAppPage.class).goToCompareExpenses();
@@ -30,7 +30,7 @@ public class Navigation extends FrameworkActions {
         getPage(AppliChartPage.class).goToChartData2019();
     }
 
-    public void goToLoginPageV1WithAdds() {
-        loadUrl(getProperty(Constants.URL_V1_ADDS));
+    public void goToLoginPageWithAdds() {
+        loadUrl(getProperty(Constants.URL_ADDS));
     }
 }

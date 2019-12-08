@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <File name="file" fileName="src/test-output/logs/app-${date:yyyy-MM-dd'_'HH-mm-ss}">
+            <PatternLayout>
+                <Pattern>%d %p %c{2} %M %m %ex%n</Pattern>
+            </PatternLayout>
+        </File>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%m%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="file" level="ERROR"/>
+            <AppenderRef ref="STDOUT" level="ERROR"/>
+        </Root>
+    </Loggers>
+</Configuration>
